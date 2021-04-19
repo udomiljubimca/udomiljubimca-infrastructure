@@ -97,7 +97,7 @@ services:
     image: prom/blackbox-exporter
     container_name: blackbox_exporter
     volumes:
-      - ./blackbox-config:/config
+      - ./monitoring/blackbox-config:/config
     command:
       - '--config.file=/config/blackbox.yml'
     restart: unless-stopped
