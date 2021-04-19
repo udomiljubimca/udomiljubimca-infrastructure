@@ -109,4 +109,4 @@ networks:
   udomiljubimca_dev:
     driver: bridge
   udomiljubimca_dev_local:
-    driver: local
+    driver: host
