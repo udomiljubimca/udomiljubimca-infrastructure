@@ -1,0 +1,1 @@
+docker build -t udomiljubimca/base-image:1.0 .
