@@ -10,7 +10,7 @@ services:
         - CLIENT_RELM_SECRET=${CLIENT_RELM_SECRET}
         - CLIENT_RELM_NAME=${CLIENT_RELM_NAME}
     ports:
-    - "10.123.176.2:8081:8080"
+    - 8080
     networks:
     - udomiljubimca_dev
 networks:
