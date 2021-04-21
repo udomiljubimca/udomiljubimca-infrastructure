@@ -5,5 +5,6 @@ RUN apk add --no-cache openssl-dev
 RUN apk add --no-cache git
 RUN apk add --no-cache gcc
 RUN luarocks install lua-resty-openidc
+ADD ./config/default.conf /config
 
 ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx", "-g", "daemon off;"]
