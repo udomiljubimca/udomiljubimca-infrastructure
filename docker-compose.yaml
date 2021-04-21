@@ -36,12 +36,22 @@ services:
       - postgres
     networks:
     - udomiljubimca_dev
-  nginx-proxy:
-    container_name: nginx-gateway-dev
+  # nginx-proxy:
+  #   container_name: nginx-gateway-dev
+  #   build:
+  #     context: ./nginx-proxy
+  #   ports:
+  #   - 80:80
+  #   networks:
+  #   - udomiljubimca_dev
+  lua-proxy:
+    container_name: lua-gateway-dev
     build:
-      context: ./nginx-proxy
+      context: ./lua-proxy
     ports:
     - 80:80
+    volumes:
+      - ./config/:/config/
     networks:
     - udomiljubimca_dev
   ##### prometheus
