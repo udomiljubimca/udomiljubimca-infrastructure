@@ -5,3 +5,6 @@ LABEL description="Centos 7 + Kong 0.14 + kong-oidc plugin"
 RUN yum install -y git unzip && yum clean all
 
 RUN luarocks install kong-oidc
+
+EXPOSE 8000
+EXPOSE 8001
