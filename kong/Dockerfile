@@ -1,4 +1,4 @@
-FROM kong:1.5.1-centos
+FROM kong:1.5.0-centos
 
 LABEL description="Centos 7 + Kong 2.4.0 + kong-oidc plugin"
 USER root
