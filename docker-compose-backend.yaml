@@ -13,8 +13,6 @@ services:
         - KEYCLOAK_CLIENT_NAME=${KEYCLOAK_CLIENT_NAME}
     ports:
     - 8080
-    networks:
-    - udomiljubimca_dev
 networks:
   udomiljubimca_dev:
     driver: bridge
