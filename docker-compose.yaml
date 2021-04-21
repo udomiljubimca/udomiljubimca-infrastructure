@@ -51,8 +51,6 @@ services:
     container_name: kong-db
     volumes:
       - kong-datastore:/var/lib/postgresql/data
-    ports:
-      - "5432"
     environment:
       POSTGRES_DB: api-gw
       POSTGRES_USER: kong

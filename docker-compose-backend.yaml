@@ -11,8 +11,8 @@ services:
         - CLIENT_RELM_NAME=${CLIENT_RELM_NAME}
         - KEYCLOAK_URL=${KEYCLOAK_URL}
         - KEYCLOAK_CLIENT_NAME=${KEYCLOAK_CLIENT_NAME}
-    ports:
-    - 8080
+    networks:
+    - udomiljubimca_dev
 networks:
   udomiljubimca_dev:
     driver: bridge
