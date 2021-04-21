@@ -48,7 +48,7 @@ services:
 
   kong-db:
     image: postgres:9.6
-    container_name: db
+    container_name: kong-db
     volumes:
       - kong-datastore:/var/lib/postgresql/data
     networks:
