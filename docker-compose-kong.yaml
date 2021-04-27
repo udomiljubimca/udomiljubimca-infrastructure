@@ -40,6 +40,20 @@ services:
       KONG_PROXY_LISTEN: 0.0.0.0:8000
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: oidc
+
+  konga-gui:
+    container_name: konga-gui
+    image: pantsel/konga
+    depends_on:
+      - kong
+    networks:
+      - udomiljubimca_kong
+    ports:
+      - "1337:1337"
+    environment: 
+      NODE_ENV: production
+      TOKEN_SECRET: 398owajldw3udjaw8iu3dnawu3dnaiwudnakwiudnaiw3dhawi7dha7wi
+
 networks:
   udomiljubimca_kong:
     driver: bridge
