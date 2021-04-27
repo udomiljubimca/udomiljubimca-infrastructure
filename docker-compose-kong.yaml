@@ -3,6 +3,7 @@ volumes:
   kong-datastore: {}
 services:
   kong-database:
+    container_name: kong-database
     image: postgres:9.6
     restart: always
     networks:
@@ -23,6 +24,7 @@ services:
   # Kong database migration
   #######################################
   kong-migration:
+    container_name: kong-migration
     image: kong:1.5
     command: "kong migrations bootstrap"
     networks:
@@ -40,6 +42,7 @@ services:
   # Kong: The API Gateway
   #######################################
   kong:
+    container_name: kong
     image: kong:1.5
     restart: always
     networks:
