@@ -16,7 +16,7 @@ services:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
     networks:
-    - udomiljubimca_dev
+    - udomiljubimca_monitoring
   keycloak:
     container_name: keycloak
     image: quay.io/keycloak/keycloak:latest
@@ -36,7 +36,7 @@ services:
     depends_on:
       - postgres
     networks:
-    - udomiljubimca_dev
+    - udomiljubimca_monitoring
   # nginx-proxy:
   #   container_name: nginx-gateway-dev
   #   build:
@@ -44,7 +44,7 @@ services:
   #   ports:
   #   - 80:80
   #   networks:
-  #   - udomiljubimca_dev
+  #   - udomiljubimca_monitoring
 
   # kong-db:
   #   image: postgres:9.6
@@ -52,7 +52,7 @@ services:
   #   volumes:
   #     - kong-datastore:/var/lib/postgresql/data
   #   networks:
-  #     - udomiljubimca_dev
+  #     - udomiljubimca_monitoring
   #   environment:
   #     POSTGRES_DB: api-gw
   #     POSTGRES_USER: kong
@@ -66,7 +66,7 @@ services:
   #   depends_on:
   #     - kong-db
   #   networks:
-  #     - udomiljubimca_dev
+  #     - udomiljubimca_monitoring
   #   ports:
   #     - "8000:8000" # Listener
   #     - "8001:8001" # Admin API
@@ -95,7 +95,7 @@ services:
       - ./monitoring/prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
     networks:
-      - udomiljubimca_dev
+      - udomiljubimca_monitoring
   ##### nodeexporter
   nodeexporter:
     image: prom/node-exporter
@@ -115,7 +115,7 @@ services:
     depends_on:
       - prometheus
     networks:
-      - udomiljubimca_dev
+      - udomiljubimca_monitoring
   ##### grafana
   grafana:
     container_name: grafana
@@ -133,7 +133,7 @@ services:
     depends_on:
       - prometheus
     networks:
-      - udomiljubimca_dev
+      - udomiljubimca_monitoring
   blackbox_exporter:
     image: prom/blackbox-exporter
     container_name: blackbox_exporter
@@ -145,7 +145,7 @@ services:
     ports:
       - "10.123.176.2:9115:9115"
     networks:
-      - udomiljubimca_dev
+      - udomiljubimca_monitoring
 networks:
-  udomiljubimca_dev:
+  udomiljubimca_monitoring:
     driver: bridge
