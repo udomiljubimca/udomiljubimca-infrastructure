@@ -1,8 +1,8 @@
 #!/bin/bash
-docker-compose up -d kong-db
-docker-compose run --rm kong kong migrations bootstrap
-docker-compose run --rm kong kong migrations up
-docker-compose up -d kong
+docker-compose -f docker-compose-kong.yaml up -d kong-db
+docker-compose -f docker-compose-kong.yaml run --rm kong kong migrations bootstrap
+docker-compose -f docker-compose-kong.yaml run --rm kong kong migrations up
+docker-compose -f docker-compose-kong.yaml up -d kong
 
 # check if it's true
 curl -s http://localhost:8001 | jq .plugins.available_on_server.oidc
