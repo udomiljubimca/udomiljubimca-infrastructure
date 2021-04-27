@@ -40,7 +40,8 @@ services:
       KONG_PROXY_LISTEN: 0.0.0.0:8000
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: oidc
-
+    extra_hosts:
+          - "Keycloak-host:149.81.126.136"
   konga-gui:
     container_name: konga-gui
     image: pantsel/konga
