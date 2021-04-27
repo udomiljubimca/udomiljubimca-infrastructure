@@ -6,7 +6,7 @@ services:
     image: postgres:9.6
     restart: always
     networks:
-      - kong-net
+      - udomiljubimca_kong
     environment:
       POSTGRES_USER: kong
       POSTGRES_DB: kong
@@ -26,7 +26,7 @@ services:
     image: kong:1.5
     command: "kong migrations bootstrap"
     networks:
-      - kong-net
+      - udomiljubimca_kong
     restart: on-failure
     environment:
       KONG_PG_HOST: kong-database
@@ -43,7 +43,7 @@ services:
     image: kong:1.5
     restart: always
     networks:
-      - kong-net
+      - udomiljubimca_kong
     environment:
       KONG_PG_HOST: kong-database
       KONG_PG_PASSWORD: kong
@@ -62,5 +62,5 @@ services:
       - 8001:8001
       - 8000:8000
 networks:
-  udomiljubimca_dev:
+  udomiljubimca_kong:
     driver: bridge
