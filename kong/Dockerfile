@@ -1,6 +1,5 @@
-FROM kong:1.5.0-centos
+FROM kong:1.5
 
-LABEL description="Centos 7 + Kong 2.4.0 + kong-oidc plugin"
 USER root
 RUN luarocks install kong-oidc
 USER kong
