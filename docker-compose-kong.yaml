@@ -41,5 +41,5 @@ services:
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: oidc
 networks:
-udomiljubimca_kong:
-  driver: bridge
+  udomiljubimca_kong:
+    driver: bridge
