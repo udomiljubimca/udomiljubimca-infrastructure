@@ -29,9 +29,10 @@ curl -s -X POST http://localhost:8001/routes \
 curl -s -X POST http://localhost:8001/plugins \
   -d name=oidc \
   -d config.client_id=app \
-  -d config.client_secret=8003ba0b-073a-4ccb-a4d4-c024064c2fac \
+  -d config.client_secret=1beb2720-7908-4179-be6c-9c3824fca37e \
   -d config.ssl_verify=false \
   -d config.realm=udomiljubimcadev \
+  -d config.logout_path=http://149.81.126.136:8000/logout \
   -d config.introspection_endpoint=http://149.81.126.136:8080/auth/realms/udomiljubimcadev/protocol/openid-connect/token/introspect \
   -d config.discovery=http://149.81.126.136:8080/auth/realms/udomiljubimcadev/.well-known/openid-configuration \
   | python3 -mjson.tool
