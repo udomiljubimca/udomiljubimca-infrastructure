@@ -46,45 +46,6 @@ services:
   #   networks:
   #   - udomiljubimca_monitoring
 
-  # kong-db:
-  #   image: postgres:9.6
-  #   container_name: kong-db
-  #   volumes:
-  #     - kong-datastore:/var/lib/postgresql/data
-  #   networks:
-  #     - udomiljubimca_monitoring
-  #   environment:
-  #     POSTGRES_DB: api-gw
-  #     POSTGRES_USER: kong
-  #     #POSTGRES_PASSWORD: 
-  #     POSTGRES_HOST_AUTH_METHOD: trust
-
-  # kong:
-  #   container_name: kong
-  #   build:
-  #     context: ./kong
-  #   depends_on:
-  #     - kong-db
-  #   networks:
-  #     - udomiljubimca_monitoring
-  #   ports:
-  #     - "8000:8000" # Listener
-  #     - "8001:8001" # Admin API
-  #     # - "8443:8443" # Listener  (SSL)
-  #     # - "8444:8444" # Admin API (SSL)
-  #   environment:
-  #     KONG_DATABASE: postgres
-  #     KONG_PG_HOST: kong-db
-  #     KONG_PG_PORT: 5432
-  #     KONG_PG_DATABASE: api-gw
-  #     KONG_PROXY_ACCESS_LOG: /dev/stdout
-  #     KONG_ADMIN_ACCESS_LOG: /dev/stdout
-  #     KONG_PROXY_ERROR_LOG: /dev/stderr
-  #     KONG_ADMIN_ERROR_LOG: /dev/stderr
-  #     KONG_PROXY_LISTEN: 0.0.0.0:8000
-  #     KONG_ADMIN_LISTEN: 0.0.0.0:8001
-  #     KONG_PLUGINS: oidc
-
   ##### prometheus
   prometheus:
     container_name: prometheus
