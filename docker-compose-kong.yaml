@@ -2,7 +2,7 @@ version: '3'
 volumes:
   kong-datastore: {}
 services:
-kong-db:
+  kong-db:
     image: postgres:9.6
     container_name: kong-db
     volumes:
@@ -40,6 +40,6 @@ kong-db:
       KONG_PROXY_LISTEN: 0.0.0.0:8000
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: oidc
-  networks:
-  udomiljubimca_kong:
-    driver: bridge
+networks:
+udomiljubimca_kong:
+  driver: bridge
