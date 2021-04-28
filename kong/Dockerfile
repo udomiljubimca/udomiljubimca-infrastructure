@@ -1,7 +1,7 @@
 FROM kong:1.5
 
 USER root
-RUN apt-get install git -y
+RUN apk add git -y
 RUN luarocks install kong-oidc
 RUN luarocks install kong-plugin-jwt-keycloak
 USER kong
