@@ -49,8 +49,8 @@ services:
       - kong
     networks:
       - udomiljubimca_monitoring
-    # ports:
-    #   - "1337"
+    ports:
+      - "10.123.176.2:1337:1337"
     environment: 
       NODE_ENV: production
       TOKEN_SECRET: ${KONG_TOKEN_SECRET}
