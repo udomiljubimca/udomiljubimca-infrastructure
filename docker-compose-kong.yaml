@@ -8,7 +8,7 @@ services:
     volumes:
       - kong-datastore:/var/lib/postgresql/data
     networks:
-      - udomiljubimca_kong
+      - udomiljubimca_monitoring
     environment:
       POSTGRES_DB: api-gw
       POSTGRES_USER: kong
@@ -22,7 +22,7 @@ services:
     depends_on:
       - kong-db
     networks:
-      - udomiljubimca_kong
+      - udomiljubimca_monitoring
     ports:
       - "8000:8000" # Listener
       - "8001:8001" # Admin API
@@ -48,13 +48,13 @@ services:
     depends_on:
       - kong
     networks:
-      - udomiljubimca_kong
+      - udomiljubimca_monitoring
     ports:
       - "1337:1337"
     environment: 
       NODE_ENV: production
       TOKEN_SECRET: 398owajldw3udjaw8iu3dnawu3dnaiwudnakwiudnaiw3dhawi7dha7wi
 
-networks:
-  udomiljubimca_kong:
-    driver: bridge
+# networks:
+#   udomiljubimca_monitoring:
+#     driver: bridge
