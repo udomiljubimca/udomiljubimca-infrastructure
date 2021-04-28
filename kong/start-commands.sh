@@ -10,14 +10,14 @@ curl -s -X POST http://localhost:8001/services \
     -d name=register-api \
     -d url=http://register-api:8080 \
     | python3 -mjson.tool
-# Now take ID! like: 86089e8b-297c-4065-85dc-ba97224614a0
+# Now take ID! like: 2be71d46-cddd-4a1e-b3c4-bacc4a6cfe14
 
 curl -s -X POST http://localhost:8001/routes \
-    -d service.id=86089e8b-297c-4065-85dc-ba97224614a0 \
+    -d service.id=2be71d46-cddd-4a1e-b3c4-bacc4a6cfe14 \
     -d paths[]=/ \
     | python3 -mjson.tool
 
-curl -s -X POST http://localhost:8001/services/86089e8b-297c-4065-85dc-ba97224614a0/plugins \
+curl -s -X POST http://localhost:8001/services/2be71d46-cddd-4a1e-b3c4-bacc4a6cfe14/plugins \
   -d name=jwt-keycloak \
   -d config.allowed_iss=http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev \
   | python3 -mjson.tool
