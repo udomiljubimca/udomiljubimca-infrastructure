@@ -25,7 +25,7 @@ services:
       - udomiljubimca_monitoring
     ports:
       - "8000:8000" # Listener
-      - "8001:8001" # Admin API
+      - "8001" # Admin API
       # - "8443:8443" # Listener  (SSL)
       # - "8444:8444" # Admin API (SSL)
     environment:
@@ -50,7 +50,7 @@ services:
     networks:
       - udomiljubimca_monitoring
     ports:
-      - "1337:1337"
+      - "1337"
     environment: 
       NODE_ENV: production
       TOKEN_SECRET: 398owajldw3udjaw8iu3dnawu3dnaiwudnakwiudnaiw3dhawi7dha7wi
