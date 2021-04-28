@@ -12,7 +12,7 @@ services:
         - KEYCLOAK_URL=${KEYCLOAK_URL}
         - KEYCLOAK_CLIENT_NAME=${KEYCLOAK_CLIENT_NAME}
     networks:
-    - udomiljubimca_dev
+    - udomiljubimca_monitoring
 networks:
-  udomiljubimca_dev:
+  udomiljubimca_monitoring:
     driver: bridge
