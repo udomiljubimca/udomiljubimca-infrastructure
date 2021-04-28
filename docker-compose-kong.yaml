@@ -25,7 +25,7 @@ services:
       - udomiljubimca_monitoring
     ports:
       - "80:8000" # Listener
-      - "8001" # Admin API
+      # - "8001" # Admin API
       # - "8443:8443" # Listener  (SSL)
       # - "8444:8444" # Admin API (SSL)
     environment:
@@ -49,8 +49,8 @@ services:
       - kong
     networks:
       - udomiljubimca_monitoring
-    ports:
-      - "1337"
+    # ports:
+    #   - "1337"
     environment: 
       NODE_ENV: production
       TOKEN_SECRET: ${KONG_TOKEN_SECRET}
