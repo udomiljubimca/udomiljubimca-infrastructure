@@ -55,6 +55,6 @@ services:
       NODE_ENV: production
       TOKEN_SECRET: 398owajldw3udjaw8iu3dnawu3dnaiwudnakwiudnaiw3dhawi7dha7wi
 
-# networks:
-#   udomiljubimca_monitoring:
-#     driver: bridge
+networks:
+  udomiljubimca_monitoring:
+    driver: bridge
