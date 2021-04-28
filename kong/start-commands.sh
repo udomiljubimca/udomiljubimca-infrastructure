@@ -5,10 +5,6 @@ docker-compose -f docker-compose-kong.yaml run --rm kong kong migrations up
 docker-compose -f docker-compose-kong.yaml up -d kong
 docker-compose -f docker-compose-kong.yaml up -d konga-gui
 
-
-# check if it's true
-curl -s http://localhost:8001 | jq .plugins.available_on_server.oidc
-
 #
 curl -s -X POST http://localhost:8001/services \
     -d name=register-api \
@@ -21,19 +17,10 @@ curl -s -X POST http://localhost:8001/routes \
     -d paths[]=/ \
     | python3 -mjson.tool
 
-#and you will get ID like: 240dae85-70ab-4332-9f19-a3334a9a793b
-
-# If you want to relete:
-#curl -X DELETE "http://localhost:8001/services/register-api/routes/55e9cc40-2a6b-4ba0-bc08-42dd68134f39"
-
-curl -s -X POST http://localhost:8001/plugins \
-  -d name=oidc \
-  -d config.client_id=app \
-  -d config.client_secret=8003ba0b-073a-4ccb-a4d4-c024064c2fac \
-  -d config.ssl_verify=false \
-  -d config.realm=udomiljubimcadev \
-  -d config.logout_path=http://dev.udomi-ljubimca.com:8000/logout \
-  -d config.introspection_endpoint=http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev/protocol/openid-connect/token/introspect \
-  -d config.discovery=http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev/.well-known/openid-configuration \
+curl -s -X POST http://localhost:8001/services/86089e8b-297c-4065-85dc-ba97224614a0/plugins \
+  -d name=jwt-keycloak \
+  -d config.allowed_iss=http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev \
   | python3 -mjson.tool
 
+
+curl -d "client_secret=8003ba0b-073a-4ccb-a4d4-c024064c2fac" -d "client_id=app" -d "username=ognjenit" -d "password=Test123" -d "grant_type=password" "http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev/protocol/openid-connect/token"
