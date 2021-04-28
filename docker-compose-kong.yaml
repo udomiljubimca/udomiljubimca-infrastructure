@@ -54,7 +54,8 @@ services:
     environment: 
       NODE_ENV: production
       TOKEN_SECRET: 398owajldw3udjaw8iu3dnawu3dnaiwudnakwiudnaiw3dhawi7dha7wi
-
+    extra_hosts:
+      - "dev.udomi-ljubimca.com:10.123.176.2"
 networks:
   udomiljubimca_monitoring:
     driver: bridge
