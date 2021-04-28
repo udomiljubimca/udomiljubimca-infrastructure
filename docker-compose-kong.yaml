@@ -41,7 +41,7 @@ services:
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: oidc
     extra_hosts:
-          - "Keycloak-host:149.81.126.136"
+          - "dev.udomi-ljubimca.com:10.123.176.2"
   konga-gui:
     container_name: konga-gui
     image: pantsel/konga
