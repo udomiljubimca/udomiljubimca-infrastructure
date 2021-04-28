@@ -9,20 +9,20 @@ docker-compose -f docker-compose-kong.yaml up -d konga-gui
 
 ########################################### EXAMPLE FOR REGISTER API ###########################################
 # Create Service
-curl -s -X POST http://localhost:8001/services \
+curl -s -X POST http://10.123.176.2:8001/services \
     -d name=register-api \
     -d url=http://register-api:8080 \
     | python3 -mjson.tool
 # Now take ID! like: 6339f5f9-344c-4675-9ac5-689b0ed63276
 
 # Create route
-curl -s -X POST http://localhost:8001/routes \
+curl -s -X POST http://10.123.176.2:8001/routes \
     -d service.id=6339f5f9-344c-4675-9ac5-689b0ed63276 \
     -d paths[]=/ \
     | python3 -mjson.tool
 
 # Set plugin to service
-# curl -s -X POST http://localhost:8001/services/6339f5f9-344c-4675-9ac5-689b0ed63276/plugins \
+# curl -s -X POST http://10.123.176.2:8001/services/6339f5f9-344c-4675-9ac5-689b0ed63276/plugins \
 #   -d name=jwt-keycloak \
 #   -d config.allowed_iss=http://149.81.126.136:8080/auth/realms/udomiljubimcadev \
 #   | python3 -mjson.tool
