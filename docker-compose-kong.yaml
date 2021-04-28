@@ -12,7 +12,7 @@ services:
     environment:
       POSTGRES_DB: api-gw
       POSTGRES_USER: kong
-      #POSTGRES_PASSWORD: 
+      # POSTGRES_PASSWORD: 
       POSTGRES_HOST_AUTH_METHOD: trust
 
   kong:
@@ -40,8 +40,8 @@ services:
       KONG_PROXY_LISTEN: 0.0.0.0:8000
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: jwt-keycloak # oidc 
-    extra_hosts:
-          - "dev.udomi-ljubimca.com:10.123.176.2"
+    # extra_hosts:
+    #       - "dev.udomi-ljubimca.com:10.123.176.2"
   konga-gui:
     container_name: konga-gui
     image: pantsel/konga
@@ -54,8 +54,8 @@ services:
     environment: 
       NODE_ENV: production
       TOKEN_SECRET: ${KONG_TOKEN_SECRET}
-    extra_hosts:
-      - "dev.udomi-ljubimca.com:10.123.176.2"
+    # extra_hosts:
+    #   - "dev.udomi-ljubimca.com:10.123.176.2"
 networks:
   udomiljubimca_monitoring:
     driver: bridge
