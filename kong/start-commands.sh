@@ -36,3 +36,4 @@ curl -s -X POST http://localhost:8001/plugins \
   -d config.introspection_endpoint=http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev/protocol/openid-connect/token/introspect \
   -d config.discovery=http://dev.udomi-ljubimca.com:8080/auth/realms/udomiljubimcadev/.well-known/openid-configuration \
   | python3 -mjson.tool
+
