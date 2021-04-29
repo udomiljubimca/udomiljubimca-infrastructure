@@ -3,8 +3,8 @@ FROM kong:1.5
 USER root
 RUN apk add git
 RUN luarocks install kong-plugin-jwt-keycloak && \
-    luarocks pack kong-plugin-jwt-keycloak
-RUN luarocks install kong-plugin-request-transformer && \
+    luarocks pack kong-plugin-jwt-keycloak && \
+    luarocks install kong-plugin-request-transformer && \
     luarocks pack kong-plugin-request-transformer
 USER kong
 EXPOSE 8000
