@@ -40,6 +40,7 @@ services:
       KONG_PROXY_LISTEN: 0.0.0.0:8000
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
       KONG_PLUGINS: jwt-keycloak # oidc 
+      KONG_HEADERS: off
     # extra_hosts:
     #       - "dev.udomi-ljubimca.com:10.123.176.2"
   konga-gui:
