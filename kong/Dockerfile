@@ -4,8 +4,8 @@ USER root
 RUN apk add git
 RUN luarocks install kong-plugin-jwt-keycloak && \
     luarocks pack kong-plugin-jwt-keycloak
-RUN luarocks install request-transformer && \
-    luarocks pack request-transformer
+RUN luarocks install kong-plugin-request-transformer && \
+    luarocks pack kong-plugin-request-transformer
 USER kong
 EXPOSE 8000
 EXPOSE 8001
