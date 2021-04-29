@@ -24,6 +24,7 @@ curl -s -X POST http://10.123.176.2:8001/routes \
     -d paths[]=/api/latest/register-api/ \
     -d methods[]=GET \
     -d methods[]=POST \
+    -d headers.seckey[]=${REGISTER_API_HEADER_SECRET} \
     -d protocols[]=http \
     -d protocols[]=https \
     | python3 -mjson.tool
