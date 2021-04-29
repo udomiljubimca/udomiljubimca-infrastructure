@@ -18,15 +18,16 @@ curl -s -X POST http://10.123.176.2:8001/services \
 # Create route
 curl -s -X POST http://10.123.176.2:8001/routes \
     -d name=register-api-route \
-    -d service.id=1be5b32b-b7c1-464e-a1b9-b6ab14074c53 \
+    -d service.id=322006c3-48a8-4490-a591-1e3c4a9463f9 \
     -d hosts[]=149.81.126.136 \
     -d hosts[]=10.123.176.2 \
-    -d paths[]=/ \
+    -d paths[]=/api/latest/register-api/ \
     -d methods[]=GET \
     -d methods[]=POST \
     -d protocols[]=http \
     -d protocols[]=https \
     | python3 -mjson.tool
+
 
 # Set plugin to service
 # curl -s -X POST http://10.123.176.2:8001/services/1be5b32b-b7c1-464e-a1b9-b6ab14074c53/plugins \
