@@ -18,7 +18,7 @@ curl -s -X POST http://10.123.176.2:8001/services \
 # Create route
 curl -s -X POST http://10.123.176.2:8001/routes \
     -d name=register-api-route \
-    -d service.id=322006c3-48a8-4490-a591-1e3c4a9463f9 \
+    -d service.id=9a8545ea-3430-4180-9286-1cf92c41476d \
     -d hosts[]=149.81.126.136 \
     -d hosts[]=10.123.176.2 \
     -d paths[]=/api/latest/register-api/ \
@@ -28,6 +28,35 @@ curl -s -X POST http://10.123.176.2:8001/routes \
     -d protocols[]=http \
     -d protocols[]=https \
     | python3 -mjson.tool
+
+
+# Auth service!
+curl -s -X POST http://10.123.176.2:8001/services \
+    -d name=auth-api-service \
+    -d url=http://auth-api:8080 \
+    | python3 -mjson.tool
+
+# 24afec8c-5a80-4f04-b1ab-2101530c9e4a
+# Create route
+curl -s -X POST http://10.123.176.2:8001/routes \
+    -d name=auth-api-route \
+    -d service.id=95a79a38-71f8-40cd-9e5a-64ea6bab1a11 \
+    -d hosts[]=149.81.126.136 \
+    -d hosts[]=10.123.176.2 \
+    -d paths[]=/api/latest/auth-api/ \
+    -d methods[]=GET \
+    -d methods[]=POST \
+    -d protocols[]=http \
+    -d protocols[]=https \
+    | python3 -mjson.tool
+
+
+# Set plugin to service - iss must be the same like Forntend url!!!!!!
+# curl -s -X POST http://10.123.176.2:8001/services/9a8545ea-3430-4180-9286-1cf92c41476d/plugins \
+#   -d name=jwt-keycloak \
+#   -d config.allowed_iss=http://keycloak:8080/auth/realms/udomiljubimcadev \
+#   | python3 -mjson.tool
+
 
 
 # Set plugin to service
