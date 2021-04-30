@@ -13,6 +13,11 @@ services:
         - KEYCLOAK_CLIENT_NAME=${KEYCLOAK_CLIENT_NAME}
     networks:
     - udomiljubimca_monitoring
+  auth-api:
+    container_name: auth-api
+    image: udomiljubimca/auth-api:1.0
+    networks:
+    - udomiljubimca_monitoring
 networks:
   udomiljubimca_monitoring:
     driver: bridge
