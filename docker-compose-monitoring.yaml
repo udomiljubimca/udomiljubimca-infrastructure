@@ -6,37 +6,37 @@ volumes:
   postgres_keycloak_data_dev:
       driver: local
 services:
-  # postgres:
-  #   container_name: keycloka-postgres-dev
-  #   image: postgres
-  #   volumes:
-  #     - postgres_keycloak_data_dev:/var/lib/postgresql/data
-  #   environment:
-  #     POSTGRES_DB: keycloak
-  #     POSTGRES_USER: keycloak
-  #     POSTGRES_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
-  #   networks:
-  #   - udomiljubimca_monitoring
-  # keycloak:
-  #   container_name: keycloak
-  #   image: quay.io/keycloak/keycloak:latest
-  #   environment:
-  #     DB_VENDOR: POSTGRES
-  #     DB_ADDR: keycloka-postgres-dev
-  #     DB_DATABASE: keycloak
-  #     DB_USER: keycloak
-  #     DB_SCHEMA: public
-  #     DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
-  #     KEYCLOAK_USER: ${KYECLOAK_ADMIN_USER}
-  #     KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD_DEV}
-  #     # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
-  #     #JDBC_PARAMS: "ssl=true"
-  #   ports:
-  #     - "8080:8080"
-  #   depends_on:
-  #     - postgres
-  #   networks:
-  #   - udomiljubimca_monitoring
+  postgres:
+    container_name: keycloka-postgres-dev
+    image: postgres
+    volumes:
+      - postgres_keycloak_data_dev:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
+    networks:
+    - udomiljubimca_monitoring
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloka-postgres-dev
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
+      KEYCLOAK_USER: ${KEYCLOAK_ADMIN_USER}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD_DEV}
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "ssl=true"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+    - udomiljubimca_monitoring
 
   ##### prometheus
   prometheus:
