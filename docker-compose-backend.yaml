@@ -15,7 +15,7 @@ services:
     - udomiljubimca_monitoring
   auth-api:
     container_name: auth-api
-    image: udomiljubimca/auth-api:1.1
+    image: udomiljubimca/auth-api:1.0
     networks:
     - udomiljubimca_monitoring
 networks:
