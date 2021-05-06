@@ -22,6 +22,7 @@ services:
         - CLIENT_RELM_SECRET=${CLIENT_RELM_SECRET}
         - CLIENT_RELM_NAME=${CLIENT_RELM_NAME}
         - KEYCLOAK_URL_WITH_PATH=${KEYCLOAK_URL_WITH_PATH}
+        - KEYCLOAK_CLIENT_NAME=${KEYCLOAK_CLIENT_NAME}
     networks:
     - udomiljubimca_monitoring
 networks:
