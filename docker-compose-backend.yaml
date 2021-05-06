@@ -16,6 +16,12 @@ services:
   auth-api:
     container_name: auth-api
     image: udomiljubimca/auth-api:1.1
+    environment:
+        - KEYCLOAK_ADMIN_USER=${KEYCLOAK_ADMIN_USER}
+        - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD_DEV}
+        - CLIENT_RELM_SECRET=${CLIENT_RELM_SECRET}
+        - CLIENT_RELM_NAME=${CLIENT_RELM_NAME}
+        - KEYCLOAK_URL_WITH_PATH=${KEYCLOAK_URL_WITH_PATH}
     networks:
     - udomiljubimca_monitoring
 networks:
