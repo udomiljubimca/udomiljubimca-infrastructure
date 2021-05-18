@@ -2,7 +2,7 @@ version: '3'
 services:
   register-api:
     container_name: register-api
-    image: udomiljubimca/register-api:1.1
+    image: udomiljubimca/register-api:1.2
     environment:
         - FLASK_ENV=${FLASK_ENV}
         - KEYCLOAK_ADMIN_USER=${KEYCLOAK_ADMIN_USER}
